@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import fr.litarvan.openauth.AuthenticationException;
+import fr.theshark34.openlauncherlib.LaunchException;
 import fr.theshark34.openlauncherlib.util.Saver;
 import fr.theshark34.swinger.Swinger;
 import fr.theshark34.swinger.colored.SColoredBar;
@@ -103,6 +104,13 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 						Launcher.interruptThread();
 						setFieldEnabled(true);
 						return;
+					}
+					
+					try {
+						Launcher.launch();
+					} catch(LaunchException e){
+						JOptionPane.showMessageDialog(LauncherPanel.this, "impossible de lancer le jeu" + e, "", JOptionPane.ERROR_MESSAGE);
+						setFieldEnabled(true);
 					}
 				}
 			};

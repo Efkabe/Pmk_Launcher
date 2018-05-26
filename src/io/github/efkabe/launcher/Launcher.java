@@ -7,13 +7,19 @@ import fr.litarvan.openauth.AuthenticationException;
 import fr.litarvan.openauth.Authenticator;
 import fr.litarvan.openauth.model.AuthAgent;
 import fr.litarvan.openauth.model.response.AuthResponse;
+import fr.theshark34.openlauncherlib.LaunchException;
+import fr.theshark34.openlauncherlib.external.ExternalLaunchProfile;
+import fr.theshark34.openlauncherlib.external.ExternalLauncher;
 import fr.theshark34.openlauncherlib.minecraft.AuthInfos;
+import fr.theshark34.openlauncherlib.minecraft.GameFolder;
 import fr.theshark34.openlauncherlib.minecraft.GameInfos;
 import fr.theshark34.openlauncherlib.minecraft.GameTweak;
 import fr.theshark34.openlauncherlib.minecraft.GameType;
 import fr.theshark34.openlauncherlib.minecraft.GameVersion;
+import fr.theshark34.openlauncherlib.minecraft.MinecraftLauncher;
 import fr.theshark34.supdate.BarAPI;
 import fr.theshark34.supdate.SUpdate;
+import fr.theshark34.supdate.application.integrated.FileDeleter;
 import fr.theshark34.swinger.Swinger;
 
 public class Launcher {
@@ -33,6 +39,8 @@ public class Launcher {
 	
 	public static void update() throws Exception {
 		SUpdate su = new SUpdate("http://launcher-pmk.000webhostapp.com", PMK_DIR);
+		su.addApplication(new FileDeleter());
+		
 		threadUpdate = new Thread(){
 			private int val;
 			private int max;
@@ -40,6 +48,10 @@ public class Launcher {
 			@Override
 			public void run() {
 				while(!this.isInterrupted()) {
+					if(BarAPI.getNumberOfFileToDownload()==0) {
+						LauncherFrame.getInstance().getPanel().setInfoText("verification des fichiers");
+						continue;
+					}
 					val = (int) (BarAPI.getNumberOfTotalDownloadedBytes() / 1000);
 					max = (int) (BarAPI.getNumberOfTotalBytesToDownload() / 1000);
 					
@@ -50,7 +62,7 @@ public class Launcher {
 					
 					LauncherFrame.getInstance().getPanel().setInfoText("Telechargement des fichiers : "+ 
 						BarAPI.getNumberOfDownloadedFiles()+"/"+BarAPI.getNumberOfFileToDownload() +
-						" "+ Swinger.percentage(val, max));
+						" "+ Swinger.percentage(val, max)+ "%");
 					}
 			}
 		};
@@ -59,6 +71,22 @@ public class Launcher {
 		su.start();
 		threadUpdate.interrupt();
 		
+	}
+	public static void launch() throws LaunchException{
+		ExternalLaunchProfile profile = MinecraftLauncher.createExternalProfile(PMK_INFOS, GameFolder.BASIC, authInfos);
+		ExternalLauncher launcher = new ExternalLauncher(profile);
+		
+		Process p = launcher.launch();
+		
+		try {
+			Thread.sleep(5000L);
+			LauncherFrame.getInstance().setVisible(false);	
+			p.waitFor();
+		}
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.exit(0);
 	}
 	
 	public static void interruptThread() {

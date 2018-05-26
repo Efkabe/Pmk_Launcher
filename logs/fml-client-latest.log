@@ -1,0 +1,156 @@
+[19:05:32] [Thread-3/DEBUG] [FML/]: Injecting tracing printstreams for STDOUT/STDERR.
+[19:05:32] [Thread-3/INFO] [FML/]: Forge Mod Loader version 14.23.2.2611 for Minecraft 1.12.2 loading
+[19:05:32] [Thread-3/INFO] [FML/]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_171, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_171\jre
+[19:05:32] [Thread-3/DEBUG] [FML/]: Java classpath at launch is:
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\resources.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\rt.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\jsse.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\jce.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\charsets.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\jfr.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\access-bridge-64.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\cldrdata.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\dnsns.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\jaccess.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\jfxrt.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\localedata.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\nashorn.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\sunec.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\sunjce_provider.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\sunmscapi.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\sunpkcs11.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Program Files\Java\jdk1.8.0_171\jre\lib\ext\zipfs.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Users\Enzor\eclipse-workspace\PMK_Launcher\bin
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Users\Enzor\Downloads\gson-2.8.5.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Users\Enzor\Downloads\s-update-3.1.0-BETA.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Users\Enzor\Downloads\openauth-1.0.4.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Users\Enzor\Downloads\openlauncherlib-3.0.4.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Users\Enzor\Downloads\swinger-1.0.0-BETA.jar
+[19:05:32] [Thread-3/DEBUG] [FML/]: Java library path at launch is:
+[19:05:32] [Thread-3/DEBUG] [FML/]:     C:\Users\Enzor\AppData\Roaming\.PumMyKins\natives
+[19:05:32] [Thread-3/DEBUG] [FML/]: Enabling runtime deobfuscation
+[19:05:32] [Thread-3/DEBUG] [FML/]: Instantiating coremod class FMLCorePlugin
+[19:05:32] [Thread-3/DEBUG] [FML/]: Found signing certificates for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin)
+[19:05:32] [Thread-3/DEBUG] [FML/]: Found certificate e3c3d50c7c986df74c645c0ac54639741c90a557
+[19:05:32] [Thread-3/DEBUG] [FML/]: Added access transformer class net.minecraftforge.fml.common.asm.transformers.AccessTransformer to enqueued access transformers
+[19:05:32] [Thread-3/DEBUG] [FML/]: Enqueued coremod FMLCorePlugin
+[19:05:32] [Thread-3/DEBUG] [FML/]: Instantiating coremod class FMLForgePlugin
+[19:05:32] [Thread-3/DEBUG] [FML/]: Found signing certificates for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin)
+[19:05:32] [Thread-3/DEBUG] [FML/]: Found certificate e3c3d50c7c986df74c645c0ac54639741c90a557
+[19:05:32] [Thread-3/DEBUG] [FML/]: Enqueued coremod FMLForgePlugin
+[19:05:32] [Thread-3/DEBUG] [FML/]: All fundamental core mods are successfully located
+[19:05:32] [Thread-3/DEBUG] [FML/]: Attempting to load commandline specified mods, relative to C:\Users\Enzor\AppData\Roaming\.PumMyKins
+[19:05:32] [Thread-3/DEBUG] [FML/]: Discovering coremods
+[19:05:32] [Thread-3/INFO] [LaunchWrapper/]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[19:05:32] [Thread-3/INFO] [LaunchWrapper/]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[19:05:32] [Thread-3/INFO] [LaunchWrapper/]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[19:05:32] [Thread-3/INFO] [LaunchWrapper/]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[19:05:32] [Thread-3/INFO] [LaunchWrapper/]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[19:05:32] [Thread-3/DEBUG] [FML/]: Injecting coremod FMLCorePlugin \{net.minecraftforge.fml.relauncher.FMLCorePlugin\} class transformers
+[19:05:32] [Thread-3/TRACE] [FML/]: Registering transformer net.minecraftforge.fml.common.asm.transformers.BlamingTransformer
+[19:05:32] [Thread-3/TRACE] [FML/]: Registering transformer net.minecraftforge.fml.common.asm.transformers.SideTransformer
+[19:05:32] [Thread-3/TRACE] [FML/]: Registering transformer net.minecraftforge.fml.common.asm.transformers.EventSubscriptionTransformer
+[19:05:32] [Thread-3/TRACE] [FML/]: Registering transformer net.minecraftforge.fml.common.asm.transformers.EventSubscriberTransformer
+[19:05:32] [Thread-3/DEBUG] [FML/]: Injection complete
+[19:05:32] [Thread-3/DEBUG] [FML/]: Running coremod plugin for FMLCorePlugin \{net.minecraftforge.fml.relauncher.FMLCorePlugin\}
+[19:05:32] [Thread-3/DEBUG] [FML/]: Running coremod plugin FMLCorePlugin
+[19:05:33] [Thread-3/DEBUG] [FML/]: Injecting tracing printstreams for STDOUT/STDERR.
+[19:05:33] [Thread-3/DEBUG] [FML/]: Read 1056 binary patches
+[19:05:33] [Thread-3/DEBUG] [FML/]: Loading deobfuscation resource /deobfuscation_data-1.12.2.lzma with 36083 records
+[19:05:34] [Thread-3/INFO] [FML/]: Found valid fingerprint for Minecraft Forge. Certificate fingerprint e3c3d50c7c986df74c645c0ac54639741c90a557
+[19:05:34] [Thread-3/INFO] [FML/]: Found valid fingerprint for Minecraft. Certificate fingerprint cd99959656f753dc28d863b46769f7f8fbaefcfc
+[19:05:34] [Thread-3/DEBUG] [FML/]: Coremod plugin class FMLCorePlugin run successfully
+[19:05:34] [Thread-3/INFO] [LaunchWrapper/]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[19:05:34] [Thread-3/DEBUG] [FML/]: Injecting coremod FMLForgePlugin \{net.minecraftforge.classloading.FMLForgePlugin\} class transformers
+[19:05:34] [Thread-3/DEBUG] [FML/]: Injection complete
+[19:05:34] [Thread-3/DEBUG] [FML/]: Running coremod plugin for FMLForgePlugin \{net.minecraftforge.classloading.FMLForgePlugin\}
+[19:05:34] [Thread-3/DEBUG] [FML/]: Running coremod plugin FMLForgePlugin
+[19:05:34] [Thread-3/DEBUG] [FML/]: Coremod plugin class FMLForgePlugin run successfully
+[19:05:34] [Thread-3/INFO] [LaunchWrapper/]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[19:05:34] [Thread-3/DEBUG] [FML/]: Loaded 209 rules from AccessTransformer config file forge_at.cfg
+[19:05:34] [Thread-3/DEBUG] [FML/]: Validating minecraft
+[19:05:35] [Thread-3/DEBUG] [FML/]: Minecraft validated, launching...
+[19:05:35] [Thread-3/INFO] [LaunchWrapper/]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[19:05:35] [Thread-3/INFO] [LaunchWrapper/]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[19:05:35] [Thread-3/INFO] [LaunchWrapper/]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[19:05:38] [Thread-3/DEBUG] [FML/]: Creating vanilla freeze snapshot
+[19:05:38] [Thread-3/DEBUG] [FML/]: Vanilla freeze snapshot created
+[19:05:39] [Thread-3/INFO] [STDOUT/]: [net.minecraft.init.Bootstrap:func_179870_a:553]: ---- Minecraft Crash Report ----
+// Hi. I'm Minecraft, and I'm a crashaholic.
+
+Time: 5/26/18 7:05 PM
+Description: Initializing game
+
+java.lang.NullPointerException: Initializing game
+	at net.minecraft.client.Minecraft.func_152340_a(Minecraft.java:831)
+	at net.minecraft.client.Minecraft.func_175594_ao(Minecraft.java:679)
+	at net.minecraft.client.Minecraft.func_71384_a(Minecraft.java:455)
+	at net.minecraft.client.Minecraft.func_99999_d(Minecraft.java:377)
+	at net.minecraft.client.main.Main.main(SourceFile:123)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at fr.theshark34.openlauncherlib.internal.InternalLauncher.launch(InternalLauncher.java:173)
+	at io.github.efkabe.launcher.Launcher.launch(Launcher.java:83)
+	at io.github.efkabe.launcher.LauncherPanel$1.run(LauncherPanel.java:110)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at net.minecraft.client.Minecraft.func_152340_a(Minecraft.java:831)
+	at net.minecraft.client.Minecraft.func_175594_ao(Minecraft.java:679)
+	at net.minecraft.client.Minecraft.func_71384_a(Minecraft.java:455)
+
+-- Initialization --
+Details:
+Stacktrace:
+	at net.minecraft.client.Minecraft.func_99999_d(Minecraft.java:377)
+	at net.minecraft.client.main.Main.main(SourceFile:123)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at fr.theshark34.openlauncherlib.internal.InternalLauncher.launch(InternalLauncher.java:173)
+	at io.github.efkabe.launcher.Launcher.launch(Launcher.java:83)
+	at io.github.efkabe.launcher.LauncherPanel$1.run(LauncherPanel.java:110)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_171, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 281233112 bytes (268 MB) / 835715072 bytes (797 MB) up to 1894252544 bytes (1806 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+	Launched Version: 1.12.2
+	LWJGL: 2.9.4
+	OpenGL: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	GL Caps: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: ~~ERROR~~ NullPointerException: null
+	Profiler Position: N/A (disabled)
+	CPU: <unknown>
+[19:05:39] [Thread-3/INFO] [STDOUT/]: [net.minecraft.init.Bootstrap:func_179870_a:553]: #@!@# Game crashed! Crash report saved to: #@!@# C:\Users\Enzor\AppData\Roaming\.PumMyKins\crash-reports\crash-2018-05-26_19.05.39-client.txt
