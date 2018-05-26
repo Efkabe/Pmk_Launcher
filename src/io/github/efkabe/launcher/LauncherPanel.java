@@ -6,10 +6,12 @@ import java.awt.Image;
 import java.io.File;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import fr.litarvan.openauth.AuthenticationException;
 import fr.theshark34.openlauncherlib.util.Saver;
 import fr.theshark34.swinger.Swinger;
 import fr.theshark34.swinger.event.SwingerEvent;
@@ -26,6 +28,7 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 	private JPasswordField passwordField = new JPasswordField("");
 	private STexturedButton quitButton = new STexturedButton(Swinger.getResource("launcher_quit.png"));
 	private STexturedButton hideButton = new STexturedButton(Swinger.getResource("launcher_minimize.png"));
+	private STexturedButton playButton = new STexturedButton(Swinger.getResource("launcher_play.png"));
 
 	public LauncherPanel() {
 		this.setLayout(null);
@@ -45,6 +48,10 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 		passwordField.setBorder(null);
 		passwordField.setBounds(833, 297, 377, 83);
 		this.add(passwordField);
+		
+		playButton.setBounds(829, 600);
+		playButton.addEventListener(this);
+		this.add(playButton);
 
 		quitButton.setBounds(0, 0);
 		quitButton.addEventListener(this);
@@ -58,7 +65,29 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 
 	@Override
 	public void onEvent(SwingerEvent e) {
-		if(e.getSource() == quitButton) {
+		if (e.getSource() == playButton) {
+			setFieldEnabled(false);
+			if(usernameField.getText().replaceAll(" ", "").length() == 0 || passwordField.getText().length() == 0) {
+				JOptionPane.showMessageDialog(this, "Aucun nom d'utilisateur ou mot de passe n'a été renseigné", "", JOptionPane.ERROR_MESSAGE);
+				setFieldEnabled(true);
+				return;
+			}
+			
+			Thread t = new Thread() {
+				@Override
+				public void run() {
+					try {
+						Launcher.auth(usernameField.getText(), passwordField.getText());
+					} catch(AuthenticationException e){
+						JOptionPane.showMessageDialog(LauncherPanel.this, "Impossible de se connecter" + e.getErrorModel().getErrorMessage() , "Erreur", JOptionPane.ERROR_MESSAGE);
+						setFieldEnabled(true);
+						return;
+					}
+				}
+			};
+			t.start();
+		}
+		else if(e.getSource() == quitButton) {
 			System.exit(0);
 		}
 		else if(e.getSource() == hideButton) {
@@ -71,6 +100,12 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 		super.paintComponent(g);
 
 		g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), this);
+	}
+	
+	private void setFieldEnabled (boolean enabled) {
+		usernameField.setEnabled(enabled);
+		passwordField.setEnabled(enabled);
+		playButton.setEnabled(enabled);
 	}
 
 }
