@@ -16,8 +16,10 @@ import javax.swing.SwingConstants;
 import fr.litarvan.openauth.AuthenticationException;
 import fr.theshark34.openlauncherlib.LaunchException;
 import fr.theshark34.openlauncherlib.util.Saver;
+import fr.theshark34.openlauncherlib.util.ramselector.RamSelector;
 import fr.theshark34.swinger.Swinger;
 import fr.theshark34.swinger.colored.SColoredBar;
+import fr.theshark34.swinger.colored.SColoredButton;
 import fr.theshark34.swinger.event.SwingerEvent;
 import fr.theshark34.swinger.event.SwingerEventListener;
 import fr.theshark34.swinger.textured.STexturedButton;
@@ -28,13 +30,18 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 
 	private Saver saver = new Saver(new File(Launcher.PMK_DIR, "launcher.properties"));
 
-	private JTextField usernameField = new JTextField("");
+	private JTextField usernameField = new JTextField(this.saver.get("username"));
 	private JPasswordField passwordField = new JPasswordField("");
 	private STexturedButton quitButton = new STexturedButton(Swinger.getResource("launcher_quit.png"));
 	private STexturedButton hideButton = new STexturedButton(Swinger.getResource("launcher_minimize.png"));
 	private STexturedButton playButton = new STexturedButton(Swinger.getResource("launcher_play.png"));
 	private SColoredBar progressBar = new SColoredBar(new Color(255, 255, 255, 100), Color.GREEN);
 	private JLabel infoLabel = new JLabel("Clique sur Jouer !", SwingConstants.CENTER);
+	
+	private RamSelector ramSelector = new RamSelector(new File(Launcher.PMK_DIR, "ram.txt"));
+	private SColoredButton ramButton = new SColoredButton(new Color(0,0,0,120), new Color(0,0,0,10));
+	
+	private JLabel ramLabel = new JLabel("Ram allouée", SwingConstants.CENTER);
 
 	public LauncherPanel() {
 		this.setLayout(null);
@@ -67,6 +74,15 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 		hideButton.addEventListener(this);
 		this.add(hideButton);
 		
+		ramLabel.setBounds(829,500,381,83);
+		ramLabel.setForeground(Color.WHITE);
+		ramLabel.setFont(ramLabel.getFont().deriveFont(40F));
+		this.add(ramLabel);
+		
+		ramButton.setBounds(829,500, 381,83);
+		ramButton.addEventListener(this);
+		this.add(ramButton);
+		
 		infoLabel.setForeground(Color.BLACK);
 		infoLabel.setBounds(0,674,825,46);
 		this.add(infoLabel);
@@ -97,6 +113,8 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 						return;
 					}
 					
+					saver.set("username", usernameField.getText());
+					
 					try {
 						Launcher.update();
 					} catch(Exception e){
@@ -122,6 +140,10 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 		else if(e.getSource() == hideButton) {
 			LauncherFrame.getInstance().setState(JFrame.ICONIFIED);
 		}
+		else if (e.getSource() == ramButton)
+		{
+			ramSelector.display();
+		}	
 	}
 
 	@Override
@@ -144,5 +166,9 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 	public void setInfoText(String text) {
 		infoLabel.setText(text);
 	}
+	
+	public RamSelector getRamSelector() {
+		return ramSelector;
+	} 
 
 }

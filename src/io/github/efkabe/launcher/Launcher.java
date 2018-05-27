@@ -1,6 +1,7 @@
 package io.github.efkabe.launcher;
 
 import java.io.File;
+import java.util.Arrays;
 
 import fr.litarvan.openauth.AuthPoints;
 import fr.litarvan.openauth.AuthenticationException;
@@ -17,6 +18,7 @@ import fr.theshark34.openlauncherlib.minecraft.GameTweak;
 import fr.theshark34.openlauncherlib.minecraft.GameType;
 import fr.theshark34.openlauncherlib.minecraft.GameVersion;
 import fr.theshark34.openlauncherlib.minecraft.MinecraftLauncher;
+import fr.theshark34.openlauncherlib.util.ramselector.RamSelector;
 import fr.theshark34.supdate.BarAPI;
 import fr.theshark34.supdate.SUpdate;
 import fr.theshark34.supdate.application.integrated.FileDeleter;
@@ -38,7 +40,8 @@ public class Launcher {
 	}
 	
 	public static void update() throws Exception {
-		SUpdate su = new SUpdate("http://launcher-pmk.000webhostapp.com", PMK_DIR);
+		SUpdate su = new SUpdate("http://launcher.pumpmykins.eu/", PMK_DIR);
+		su.getServerRequester().setRewriteEnabled(true);
 		su.addApplication(new FileDeleter());
 		
 		threadUpdate = new Thread(){
@@ -74,6 +77,9 @@ public class Launcher {
 	}
 	public static void launch() throws LaunchException{
 		ExternalLaunchProfile profile = MinecraftLauncher.createExternalProfile(PMK_INFOS, GameFolder.BASIC, authInfos);
+		profile.getVmArgs().addAll(Arrays.asList(LauncherFrame.getInstance().getPanel().getRamSelector().getRamArguments()));
+		LauncherFrame.getInstance().getPanel().getRamSelector().save();
+		
 		ExternalLauncher launcher = new ExternalLauncher(profile);
 		
 		Process p = launcher.launch();
