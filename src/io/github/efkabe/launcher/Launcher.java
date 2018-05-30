@@ -40,6 +40,7 @@ public class Launcher {
 	}
 	
 	public static void update() throws Exception {
+		
 		SUpdate su = new SUpdate("http://launcher.pumpmykins.eu/", PMK_DIR);
 		su.getServerRequester().setRewriteEnabled(true);
 		su.addApplication(new FileDeleter());
@@ -76,24 +77,24 @@ public class Launcher {
 		
 	}
 	public static void launch() throws LaunchException{
-		ExternalLaunchProfile profile = MinecraftLauncher.createExternalProfile(PMK_INFOS, GameFolder.BASIC, authInfos);
-		profile.getVmArgs().addAll(Arrays.asList(LauncherFrame.getInstance().getPanel().getRamSelector().getRamArguments()));
-		LauncherFrame.getInstance().getPanel().getRamSelector().save();
-		
-		ExternalLauncher launcher = new ExternalLauncher(profile);
-		
-		Process p = launcher.launch();
-		
-		try {
-			Thread.sleep(5000L);
-			LauncherFrame.getInstance().setVisible(false);	
-			p.waitFor();
+			ExternalLaunchProfile profile = MinecraftLauncher.createExternalProfile(PMK_INFOS, GameFolder.BASIC, authInfos);
+			profile.getVmArgs().addAll(Arrays.asList(LauncherFrame.getInstance().getPanel().getRamSelector().getRamArguments()));
+			LauncherFrame.getInstance().getPanel().getRamSelector().save();
+			
+			ExternalLauncher launcher = new ExternalLauncher(profile);
+			
+			Process p = launcher.launch();
+			
+			try {
+				Thread.sleep(5000L);
+				LauncherFrame.getInstance().setVisible(false);	
+				p.waitFor();
+			}
+			catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			System.exit(0);
 		}
-		catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.exit(0);
-	}
 	
 	public static void interruptThread() {
 		threadUpdate.interrupt();

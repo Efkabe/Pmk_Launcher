@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -95,44 +96,46 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 	@Override
 	public void onEvent(SwingerEvent e) {
 		if (e.getSource() == playButton) {
-			setFieldEnabled(false);
-			if(usernameField.getText().replaceAll(" ", "").length() == 0 || passwordField.getText().length() == 0) {
-				JOptionPane.showMessageDialog(this, "Aucun nom d'utilisateur ou mot de passe n'a été renseigné", "", JOptionPane.ERROR_MESSAGE);
-				setFieldEnabled(true);
-				return;
-			}
 			
-			Thread t = new Thread() {
-				@Override
-				public void run() {
-					try {
-						Launcher.auth(usernameField.getText(), passwordField.getText());
-					} catch(AuthenticationException e){
-						JOptionPane.showMessageDialog(LauncherPanel.this, "Impossible de se connecter" + e.getErrorModel().getErrorMessage() , "Erreur", JOptionPane.ERROR_MESSAGE);
-						setFieldEnabled(true);
-						return;
-					}
-					
-					saver.set("username", usernameField.getText());
-					
-					try {
-						Launcher.update();
-					} catch(Exception e){
-						JOptionPane.showMessageDialog(LauncherPanel.this, "Impossible de mettre le jeu à jour" + e , "Erreur", JOptionPane.ERROR_MESSAGE);
-						Launcher.interruptThread();
-						setFieldEnabled(true);
-						return;
-					}
-					
-					try {
-						Launcher.launch();
-					} catch(LaunchException e){
-						JOptionPane.showMessageDialog(LauncherPanel.this, "impossible de lancer le jeu" + e, "", JOptionPane.ERROR_MESSAGE);
-						setFieldEnabled(true);
-					}
+			Launcher.PMK_DIR.mkdirs();
+				setFieldEnabled(false);
+				if(usernameField.getText().replaceAll(" ", "").length() == 0 || passwordField.getText().length() == 0) {
+					JOptionPane.showMessageDialog(this, "Aucun nom d'utilisateur ou mot de passe n'a été renseigné", "", JOptionPane.ERROR_MESSAGE);
+					setFieldEnabled(true);
+					return;
 				}
-			};
-			t.start();
+				
+				Thread t = new Thread() {
+					@Override
+					public void run() {
+						try {
+							Launcher.auth(usernameField.getText(), passwordField.getText());
+						} catch(AuthenticationException e){
+							JOptionPane.showMessageDialog(LauncherPanel.this, "Impossible de se connecter" + e.getErrorModel().getErrorMessage() , "Erreur", JOptionPane.ERROR_MESSAGE);
+							setFieldEnabled(true);
+							return;
+						}
+						
+						saver.set("username", usernameField.getText());
+						
+						try {
+							Launcher.update();
+						} catch(Exception e){
+							JOptionPane.showMessageDialog(LauncherPanel.this, "Impossible de mettre le jeu à jour" + e , "Erreur", JOptionPane.ERROR_MESSAGE);
+							Launcher.interruptThread();
+							setFieldEnabled(true);
+							return;
+						}
+						
+						try {
+							Launcher.launch();
+						} catch(LaunchException e){
+							JOptionPane.showMessageDialog(LauncherPanel.this, "impossible de lancer le jeu" + e, "", JOptionPane.ERROR_MESSAGE);
+							setFieldEnabled(true);
+						}
+					}
+				};
+				t.start();
 		}
 		else if(e.getSource() == quitButton) {
 			System.exit(0);
@@ -157,6 +160,7 @@ public class LauncherPanel extends JPanel implements SwingerEventListener {
 		usernameField.setEnabled(enabled);
 		passwordField.setEnabled(enabled);
 		playButton.setEnabled(enabled);
+		ramButton.setEnabled(enabled);
 	}
 	
 	public SColoredBar getProgressBar() {
